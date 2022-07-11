@@ -1,19 +1,21 @@
 1. Create a function by your choice that accepts a callback function.
 
 ```js
-function multiply(num, cb){
-  return num * cb
+function multiply(cb){
+  return cb(21)
 } 
-function cb(n){
-  return n
-}
+multiply(function cb(n){
+  return n * 1
+})
 ```
 2. Create a function by you choice that returns a function reference.
 
 ```js
-function add(elm,cb){
-  return callback
+function outer(){
+  function inner(num){return num + 1}
+  return inner
 }
+outer()
 
 
 ```
@@ -64,9 +66,9 @@ console.log(alphabet); //prints 'abcd'
 ```js
 function filter(arr,cb){
   let newarr =[]
-  for(let i = 0; i < arr.length; i++){
-    if(arr[i] !== 0 || arr[i] !== "false" || arr[i] !== "null" || arr[i] !== "" || arr[i] !== "undefined" || arr[i] !== "NaN") {
-      newarr.push(cb(arr[i]))
+  for(let elm of arr){
+    if(cb(elm)){
+      newarr.push(elm)
     }
   }
   return newarr
