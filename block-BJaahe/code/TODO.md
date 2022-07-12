@@ -180,7 +180,9 @@ The returned function accepts a string (children) and returns the children with 
 function createTag(elmName) {
   // your code goes here
   return function(str){
-    return document.createElement(elmName).innerText = str;
+   let elm =  document.createElement(elmName);
+   elm.innerText = str;
+   return elm
   }
 }
 
