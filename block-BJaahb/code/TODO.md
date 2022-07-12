@@ -12,7 +12,7 @@ function outer() {
 let getSum = outer();
 let num = getSum();
 ```
-
+![](../IMG_8655.HEIC)
 2.
 
 Create the execution context diagram for following code. Also write the output of the code below.
@@ -28,11 +28,12 @@ function getCounter() {
 
 let counter = getCounter();
 
-counter(); // output
-counter(); // output
-counter(); // output
-counter(); // output
+counter(); 0
+counter(); 1
+counter(); 2
+counter(); 3
 ```
+![](../IMG_8656.HEIC)
 
 3. Create the execution context diagram
 
@@ -51,3 +52,6 @@ tomato();
 
 // What will be the background color after the execution of last line
 ```
+![](../IMG_8657.HEIC)
+at the end background color will be tomato
+
