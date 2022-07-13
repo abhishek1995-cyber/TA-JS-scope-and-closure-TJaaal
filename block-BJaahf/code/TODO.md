@@ -12,7 +12,10 @@
 ```js
 function loop() {
   // Your code goes here
+
 }
+
+
 
 loop(
   3,
@@ -29,8 +32,15 @@ loop(
 
 Here's how it works. The function has an "accumulator value" which starts as the `initialValue` and accumulates the output of each loop. The array is iterated over, passing the accumulator and the next array element as arguments to the `callback`. The callback's return value becomes the new accumulator value. The next loop executes with this new accumulator value. In the example above, the accumulator begins at 0. `add(0,4)` is called. The accumulator's value is now 4. Then `add(4, 1)` to make it 5. Finally `add(5, 3)` brings it to 8, which is returned.
 
+
 ```js
-function reduce(array, callback, initialValue) {}
+function reduce(array, callback, initialvalue) {
+    let acc = initialvalue === undefined ? undefined : initialvalue;
+    for (let i = 0; i < array.length; i++){
+      acc = callback(acc,array[i]);
+    }
+    return acc
+}
 
 // Test
 var nums = [4, 1, 3];
@@ -43,7 +53,10 @@ reduce(nums, add, 0); //-> 8
 3. Construct a function intersection that compares input arrays and returns a new array with elements found in all of the inputs.
 
 ```js
-function intersection(arrays) {}
+function intersection(arrays) {
+  let firstArray = [];
+  let allArrays = arrays[i]
+}
 
 // Test
 console.log(
@@ -66,3 +79,4 @@ console.log(
 );
 // should log: [5, 10, 15, 88, 1, 7, 100]
 ```
+
