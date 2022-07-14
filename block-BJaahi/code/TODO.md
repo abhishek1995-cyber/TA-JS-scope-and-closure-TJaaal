@@ -64,7 +64,23 @@ var nextMessage = sayHello('Test');
 <!-- Answer -->
 
 ```js
-// Your code goes here
+//declaration phase
+var username = undefined;
+let number;
+
+function sayHello(name) {
+  return `Hello ${name}`;
+}
+
+let message;
+var nextMessage = undefined;
+```
+
+```js
+// execution phase
+console.log(username, numbers);
+
+Uncaught ReferenceError: numbers is not defined;
 ```
 
 3.
@@ -85,7 +101,23 @@ var nextMessage = sayHello('Test');
 <!-- Answer -->
 
 ```js
-// Your code goes here
+// declaration phase
+
+let username;
+let number;
+
+let sayHello = function (name) {
+  return `Hello ${name}`;
+};
+
+let message;
+var nextMessage;
+```
+
+```js
+// execution phase
+console.log(username, numbers);
+Uncaught ReferenceError: username is not defined;
 ```
 
 4.
@@ -107,7 +139,27 @@ var nextMessage = sayHello('Test');
 <!-- Answer -->
 
 ```js
-// Your code goes here
+// declaration phase
+
+let username;
+
+let number;
+let message;
+
+let sayHello = function (name) {
+  return `Hello ${name}`;
+};
+
+var nextMessage = undefined;
+```
+
+```js
+// execution phase
+let username = 'Arya';
+console.log(username, numbers);
+
+Uncaught ReferenceError: numbers is not defined;
+
 ```
 
 5.
@@ -122,7 +174,19 @@ let age = 21;
 <!-- Answer -->
 
 ```js
-// Your code goes here
+// declaration phase
+
+var name = undefined;
+let age;
+```
+
+```js
+// execution phase
+console.log(name); // 'Lydia'
+console.log(age); // age isn't defined
+
+
+
 ```
 
 6.
@@ -141,7 +205,29 @@ sayHi();
 <!-- Answer -->
 
 ```js
-// Your code goes here
+// declaration phase
+function sayHi(name) {
+  console.log(name);
+  console.log(age);
+  var name = 'Lydia';
+  let age = 21;
+}
+
+```
+```js
+// execution phase
+function sayHi(name) {
+  //declaration phase
+  var name = undefined;
+  let age;
+
+  // execution phase
+
+  console.log(name); // "lydia"
+  console.log(age); // Cannot access 'age' before initialization
+
+}
+
 ```
 
 7.
@@ -159,7 +245,26 @@ function sayHi(name) {
 <!-- Answer -->
 
 ```js
-// Your code goes here
+// declaration phase
+
+function sayHi(name) {
+  console.log(name);
+  console.log(age);
+  var name = 'Lydia';
+  let age = 21;
+}
+```
+
+```js
+// execution phase
+sayHi();
+
+function sayHi(name) {
+  console.log(name);
+  console.log(age); // Cannot access 'age' before initialization
+  var name = 'Lydia';
+  let age = 21;
+}
 ```
 
 8.
@@ -177,7 +282,7 @@ let sayHi = function sayHi(name) {
 <!-- Answer -->
 
 ```js
-// Your code goes here
+Uncaught ReferenceError: sayHi is not defined
 ```
 
 9.
@@ -192,7 +297,7 @@ let num2 = 30;
 <!-- Answer -->
 
 ```js
-// Your code goes here
+Uncaught ReferenceError: num2 is not defined
 ```
 
 10.
@@ -216,7 +321,7 @@ let sum = add(num1, num2, 4, 5, 6);
 <!-- Answer -->
 
 ```js
-// Your code goes here
+VM14000:3 Uncaught ReferenceError: addAgain is not defined
 ```
 
 11.
@@ -237,7 +342,7 @@ let add = (a, b) => {
 <!-- Answer -->
 
 ```js
-// Your code goes here
+VM14030:3 Uncaught ReferenceError: add is not defined
 ```
 
 12.
@@ -258,5 +363,36 @@ function add(a, b) {
 <!-- Answer -->
 
 ```js
-// Your code goes here
+//declaration phase
+function test(a) {
+  let num1 = 21;
+  return add(a, num1);
+}
+
+let sum;
+
+function add(a, b) {
+  return a + b;
+}
 ```
+
+```js
+// execution phase
+function test(a) {
+  // declaration phase
+  a= 100
+  let num1;
+  // execution phase
+  num1 = 21;
+  return add(100, 21);
+}
+
+let sum = test(100);
+
+function add(100, 21) {
+
+  return 100 + 21;
+}
+sum = 121
+```
+
